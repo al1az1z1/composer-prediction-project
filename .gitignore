@@ -1,0 +1,18 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment
+venv/
+env/
+
+# Data and models
+# project/data/midi
+project/exports/
+
+# OS-specific
+.DS_Store
+Thumbs.db
