@@ -13,17 +13,11 @@ project/
 ├── preprocessing/ # Scripts for data conversion
 │ ├── midi_to_sequence.py
 │ └── audio_to_spectrogram.py
-├── models/ # Deep learning model definitions
-│ ├── rnn_model.py
-│ └── cnn_model.py
 ├── notebooks/ # Jupyter notebooks for EDA and training
 │ ├── EDA.ipynb
 │ ├── RNN_training.ipynb
 │ ├── CNN_training.ipynb
 │ └── comparison.ipynb
-├── exports/ # Trained models
-│ ├── trained_rnn_model.h5
-│ ├── trained_cnn_model.h5
 ├── reports/ # Final report
 │ └── Project_Report-TeamX.pdf
 ├── README.md # This file
