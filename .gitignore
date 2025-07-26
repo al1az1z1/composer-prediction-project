@@ -10,7 +10,7 @@ venv/
 env/
 
 # Data and models
-# project/data/midi
+project/data/midi
 project/exports/
 
 # OS-specific
