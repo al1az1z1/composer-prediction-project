@@ -7,7 +7,7 @@ pd.options.mode.chained_assignment = None
 
 
 def midi_notes_dataframe(path: str) -> pd.DataFrame:
-    """create dataframe of note_on messages from midi file"""
+    """create dataframe of note_on and note_off messages from midi file"""
 
     # basic io
     mid = mido.MidiFile(path)
@@ -16,17 +16,20 @@ def midi_notes_dataframe(path: str) -> pd.DataFrame:
     events = []
     for track in mid.tracks:
         for msg in track:
-            if msg.type == "note_on":
+            if msg.type in ["note_on", "note_off"]:
                 events.append(msg)
 
     # parsing messages into features
     events_df = pd.DataFrame({"raw_events": events})
+    events_df["event_type"] = events_df["raw_events"].apply(lambda x: x.type)
 
     features = ["channel", "note", "velocity", "time"]
 
     for feature in features:
         events_df[feature] = events_df["raw_events"].apply(
             lambda x: getattr(x, feature))
+
+    events_df.loc[events_df["event_type"] == "note_off", "velocity"] = 0
 
     return events_df
 
