@@ -95,10 +95,10 @@ def interpolate_channel(dataframe: pd.DataFrame) -> np.array:
 def interpolate_multichannel(dataframe):
     """execute interploation pipeline over a batch of channels"""
 
-    channel_count = dataframe["channel"].max()
+    channel_index = dataframe["channel"].unique()
     return [
         interpolate_channel(dataframe[dataframe["channel"] == i])
-        for i in range(channel_count+1)
+        for i in channel_index
     ]
 
 
