@@ -6,7 +6,7 @@ import pandas as pd
 pd.options.mode.chained_assignment = None
 
 
-def midi_dataframe(path: str) -> pd.DataFrame:
+def midi_notes_dataframe(path: str) -> pd.DataFrame:
     """create dataframe of note_on messages from midi file"""
 
     # basic io
@@ -29,6 +29,27 @@ def midi_dataframe(path: str) -> pd.DataFrame:
             lambda x: getattr(x, feature))
 
     return events_df
+
+
+def midi_events_dataframe(path: str,
+                          event_types: list | None = None) -> pd.DataFrame:
+    """create dataframe of all messages from midi file"""
+
+    # basic io
+    mid = mido.MidiFile(path)
+
+    # isolate note_on events and concatenate tracks
+    events = []
+    for track in mid.tracks:
+        if event_types:
+            for msg in track:
+                if msg.type in event_types:
+                    events.append(msg)
+        else:
+            for msg in track:
+                events.append(msg)
+
+    return pd.DataFrame({"raw_events": events})
 
 
 def hold_ticks(dataframe: pd.DataFrame, row_index: int) -> int:
