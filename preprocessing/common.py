@@ -98,7 +98,7 @@ def interpolate_multichannel(dataframe):
     channel_count = dataframe["channel"].max()
     return [
         interpolate_channel(dataframe[dataframe["channel"] == i])
-        for i in range(channel_count)
+        for i in range(channel_count+1)
     ]
 
 
