@@ -48,7 +48,7 @@ def hold_ticks(dataframe: pd.DataFrame, row_index: int) -> int:
 
                 end_time = subset["cum_time"].values[i+1]
                 break
-            elif i == i_rows:
+            elif i == i_rows-1:
                 end_time = subset["cum_time"].values[i]
 
         return end_time - start_time
