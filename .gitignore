@@ -10,8 +10,8 @@ venv/
 env/
 
 # Data and models
-project/data/midi
-project/exports/
+/data/midi
+
 
 # OS-specific
 .DS_Store
