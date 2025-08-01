@@ -5,23 +5,23 @@ This project is part of the A511 Neural Networks course. We aim to classify MIDI
 ## Project Structure
 
 
-project/
-├── data/ # Raw and processed data
-│ ├── midi/ # Original MIDI files
-│ ├── spectrograms/ # Audio converted to spectrograms (for CNN)
-│ └── note_sequences/ # Sequences extracted from MIDI (for RNN)
-├── preprocessing/ # Scripts for data conversion
-│ ├── midi_to_sequence.py
-│ └── audio_to_spectrogram.py
-├── notebooks/ # Jupyter notebooks for EDA and training
-│ ├── EDA.ipynb
-│ ├── RNN_training.ipynb
-│ ├── CNN_training.ipynb
-│ └── comparison.ipynb
-├── reports/ # Final report
-│ └── Project_Report-TeamX.pdf
-├── README.md # This file
-└── requirements.txt # Project dependencies
+project/  
+├── data/ # Raw and processed data  
+│ ├── midi/ # Original MIDI files  
+│ ├── spectrograms/ # Audio converted to spectrograms (for CNN)  
+│ └── note_sequences/ # Sequences extracted from MIDI (for RNN)  
+├── preprocessing/ # Scripts for data conversion  
+│ ├── midi_to_sequence.py  
+│ └── audio_to_spectrogram.py  
+├── notebooks/ # Jupyter notebooks for EDA and training  
+│ ├── EDA.ipynb  
+│ ├── RNN_training.ipynb  
+│ ├── CNN_training.ipynb  
+│ └── comparison.ipynb  
+├── reports/ # Final report  
+│ └── Project_Report-TeamX.pdf  
+├── README.md # This file  
+└── requirements.txt # Project dependencies  
 
 
 ## Objectives
