@@ -1,6 +1,5 @@
 import mido
 import numpy as np
-import tensorflow as tf
 import pandas as pd
 
 pd.options.mode.chained_assignment = None
@@ -137,11 +136,10 @@ def pad_array(array: np.array, max_cols) -> np.array:
         return np.append(array, pad_array, axis=1)
 
 
-def midi_to_tensor(dataframe) -> tf.Tensor:
+def midi_to_array(dataframe) -> np.array:
     """execute full pipeline to interpolate over a batch of channels,
-    normalize the respective arrays, and convert to tensor"""
+    normalize the respective arrays, and convert to np.array"""
 
     arrays = interpolate_multichannel(dataframe)
     max_ticks = np.max([arr.shape[1] for arr in arrays])
-    padded_arrays = [pad_array(arr, max_ticks) for arr in arrays]
-    return tf.constant(padded_arrays)
+    return np.array([pad_array(arr, max_ticks) for arr in arrays])
