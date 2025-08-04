@@ -40,7 +40,7 @@ def midi_events_dataframe(path: str,
     # basic io
     mid = mido.MidiFile(path)
 
-    # isolate note_on events and concatenate tracks
+    # collect events
     events = []
     for track in mid.tracks:
         if event_types:
@@ -52,6 +52,63 @@ def midi_events_dataframe(path: str,
                 events.append(msg)
 
     return pd.DataFrame({"raw_events": events})
+
+
+""" 
+def midi_track_length(path: str):
+    mid = mido.MidiFile(path)
+
+    ticks_per_beat = mid.ticks_per_beat
+    current_tempo = 500000  # Default tempo (120 BPM)
+    total_seconds = 0
+
+    # pattern 1 - multiple tempo changes
+    for track in mid.tracks:
+        for msg in track:
+            if msg.type == "set_tempo":
+                current_tempo = msg.tempo
+                time = msg.time
+                total_seconds += (current_tempo/1_000_000) * \
+                    (time/ticks_per_beat)
+
+            # pattern 2 - single tempo, end_of_track flag
+            if total_seconds == 0:
+                max_eot_time = 0
+                for msg in track:
+                    if msg.type == "set_tempo":
+                        current_tempo = msg.tempo
+
+                    if msg.type == "end_of_track":
+                        if msg.time > max_eot_time:
+                            max_eot_time = msg.time
+
+                total_seconds = (current_tempo/1_000_000) * \
+                    (max_eot_time/ticks_per_beat)
+
+            # pattern 3 - single tempo, no end_of_track flag
+            if total_seconds == 0:
+                note_time = 0
+                for msg in track:
+                    if msg.type == "set_tempo":
+                        current_tempo = msg.tempo
+
+                    if msg.type in ["note_on", "note_off"]:
+                        note_time += msg.time
+
+                total_seconds = (current_tempo/1_000_000) * \
+                    (note_time/ticks_per_beat)
+
+    return total_seconds """
+
+
+def midi_track_length(path: str):
+    mid = mido.MidiFile(path)
+    absolute_time_ticks = 0
+
+    for msg in mid:
+        absolute_time_ticks += msg.time
+
+    return absolute_time_ticks
 
 
 def hold_ticks(dataframe: pd.DataFrame, row_index: int) -> int:

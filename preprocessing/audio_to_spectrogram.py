@@ -12,18 +12,29 @@ def sample_validator(array: np.array, silence_threshold: float) -> bool:
 
 
 def reducer_sampler(array: np.array,
-                    n: int,
+                    duration: float,
+                    sample_seconds: int,
                     silence_threshold: float,
                     attempts: int = 100) -> tuple[int, int, np.array]:
     """Reduces 3d tensor to 2d tensor and samples n random columns."""
 
-    reduced_tensor = np.sum(array, axis=0)
+    reduced_array = np.sum(array, axis=0)
+    ticks_per_second = int(reduced_array.shape[1]/duration)
+    n = ticks_per_second * sample_seconds
 
     passed_validation = False
-    while passed_validation is not True and attempts > 0:
-        index = np.random.randint(0, reduced_tensor.shape[1]-n)
-        sample = reduced_tensor[:, index:index+n]
+
+    while attempts > 0:
+        index = np.random.randint(0, reduced_array.shape[1] - n)
+        sample = reduced_array[:, index:index + n]
+
         passed_validation = sample_validator(sample, silence_threshold)
+
+        if passed_validation:
+            break
         attempts -= 1
 
-    return index, index+n, sample
+    if passed_validation:
+        return index, index+n, sample
+    else:
+        raise ValueError("Could not pull a valid sample.")
