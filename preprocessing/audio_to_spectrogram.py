@@ -224,7 +224,7 @@ def midi_to_wav(midi_path: str, wav_path: str, soundfont_path: str) -> None:
     write(wav_path, fs, (audio_data * 32767).astype("int16"))
 
 
-def midi_to_array_(midi_path: str, soundfont_path: str) -> np.array:
+def midi_to_soundfont_array_(midi_path: str, soundfont_path: str) -> np.array:
     """
     Converts a MIDI file to a NumPy array of audio samples using a SoundFont.
 
