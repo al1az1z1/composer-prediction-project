@@ -296,7 +296,7 @@ def reducer_sampler(array: np.ndarray,
         raise ValueError("Could not pull a valid sample.")
 
 
-# Functions to generate and sample MEL spectrograms.
+# Functions to generate and sample Mel spectrograms.
 
 
 def midi_to_wav(midi_path: str, wav_path: str, soundfont_path: str) -> None:
