@@ -9,15 +9,18 @@ project/
 ├── data/ # Raw and processed data  
 │ ├── midi/ # Original MIDI files  
 │ ├── spectrograms/ # Audio converted to spectrograms (for CNN)  
-│ └── note_sequences/ # Sequences extracted from MIDI (for RNN)  
-├── preprocessing/ # Scripts for data conversion  
-│ ├── midi_to_sequence.py  
-│ └── audio_to_spectrogram.py  
+│ └── note_sequences/ # Sequences extracted from MIDI (for RNN)
+├── models/ # Raw and processed data
+| ├── CNN/ # Saved CNN Models 
+│ ├── RNN/ # Saved LSTM Models     
 ├── notebooks/ # Jupyter notebooks for EDA and training  
 │ ├── EDA.ipynb  
 │ ├── RNN_training.ipynb  
 │ ├── CNN_training.ipynb  
-│ └── comparison.ipynb  
+│ └── comparison.ipynb
+├── preprocessing/ # Scripts for data conversion  
+│ ├── audio_to_spectrogram.py
+│ └── midi_to_sequence.ipynb  
 ├── reports/ # Final report  
 │ └── Project_Report-TeamX.pdf  
 ├── README.md # This file  
@@ -33,8 +36,9 @@ project/
 
 ## Models
 
-- `RNN`: LSTM-based sequence model using MIDI note sequences
 - `CNN`: Spectrogram-based image classification model
+- `RNN`: LSTM-based sequence model using MIDI note sequences
+
 
 ## How to Run
 
