@@ -91,9 +91,9 @@ pip install -r requirements.txt
 
 ## Team Members
 
-- **Jack Kim**
-  - GitHub: [JackKim123](https://github.com/shaun-friedman)
-  - LinkedIn: [Jack Kim](https://www.linkedin.com/in/shaun-friedman/)
+- **Shaun Friedman**
+  - GitHub: [shaun-friedman](https://github.com/shaun-friedman)
+  - LinkedIn: [Shaun Friedman](https://www.linkedin.com/in/shaun-friedman/)
 - **Ali Azizi** 
   - GitHub: [al1az1z1](https://github.com/al1az1z1)
   - LinkedIn: [Ali Azizi](https://www.linkedin.com/in/al1az1z1)
