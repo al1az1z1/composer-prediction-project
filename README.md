@@ -17,7 +17,6 @@ project/
 │ ├── EDA.ipynb  
 │ ├── RNN_training.ipynb  
 │ ├── CNN_training.ipynb  
-│ └── comparison.ipynb
 ├── preprocessing/ # Scripts for data conversion  
 │ ├── audio_to_spectrogram.py
 │ └── midi_to_sequence.ipynb  
@@ -33,6 +32,17 @@ project/
 - Train and evaluate both models on the dataset
 - Compare the performance of both models
 - Generate insights for genre/composer classification using deep learning
+
+
+## Target Variable
+
+The primary target variable in this project is the **composer** of each MIDI file.  
+The dataset contains works from the following composers:
+
+- Bach 
+- Beethoven
+- Chopin
+- Mozart
 
 ## Models
 
@@ -78,7 +88,21 @@ pip install -r requirements.txt
 
 ---
 
-## License
 
-This project is for educational purposes under the A511 course. Open for academic use.
+## Team Members
 
+- **Jack Kim**
+  - GitHub: [JackKim123](https://github.com/shaun-friedman)
+  - LinkedIn: [Jack Kim](https://www.linkedin.com/in/shaun-friedman/)
+- **Ali Azizi** 
+  - GitHub: [al1az1z1](https://github.com/al1az1z1)
+  - LinkedIn: [Ali Azizi](https://www.linkedin.com/in/al1az1z1)
+
+---
+
+
+## License & Academic Use
+
+This project was developed as part of the course **AAI 511 – Neural Networks and Deep Learning** at the **University of San Diego**.  
+It is intended for educational purposes only and is released under the **MIT License**.  
+All datasets are publicly available and sourced from Kaggle. Code contributions follow the [PEP 8 Style Guide](https://peps.python.org/pep-0008/).
